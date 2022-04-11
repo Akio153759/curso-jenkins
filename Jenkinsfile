@@ -1,11 +1,10 @@
 pipeline {
-  agent { label 'principal' }
+  agent none
   environment {
     appName = "variable" 
   }
   stages {
-
- stage("paso 1"){
+    stage("paso 1"){
      
       steps {
           script {			
@@ -15,17 +14,16 @@ pipeline {
     }
   }
   post {
-      always {          
-          deleteDir()
-           sh "echo 'fase always'"
+    always {          
+        deleteDir()
+          sh "echo 'fase always'"
+    }
+    success {
+          sh "echo 'fase success'"
       }
-      success {
-            sh "echo 'fase success'"
-        }
 
-      failure {
-            sh "echo 'fase failure'"
-      }
-      
+    failure {
+          sh "echo 'fase failure'"
+    }
   }
 }  
