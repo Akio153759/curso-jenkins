@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'master' }
+  agent { label 'principal' }
   environment {
     appName = "variable" 
   }
